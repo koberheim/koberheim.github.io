@@ -743,6 +743,11 @@ el("reset-btn").addEventListener("click", () => {
 });
 
 // ---------- init ----------
+// Surfaces the loaded dataset size in the footer, so it's obvious at a glance
+// whether a browser is running a stale cached copy of this file.
+const countEl = el("species-count");
+if (countEl) countEl.textContent = SPECIES.length;
+
 applyPreset();
 hashToStock();
 renderChips();
