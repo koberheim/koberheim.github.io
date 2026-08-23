@@ -19,23 +19,13 @@ items below are the specific, small steps only a human can complete.
 5. ✅ **Google Search Console verification tag added** (2026-08-23) — you
    provided the `google-site-verification` meta tag, it's live in
    `index.html`'s `<head>` and deployed.
+6. ✅ **Site verified and submitted in both Google Search Console and Bing
+   Webmaster Tools** (2026-08-23). The two highest-leverage discoverability
+   steps in this whole plan are now done — indexing is out of the agent's
+   and the human's hands from here; it's just a matter of Google/Bing's own
+   crawl schedule (typically days, not weeks, once submitted this way).
 
 ## Remaining
-
-### Finish the Google Search Console setup (~2 min, free)
-
-The verification tag is deployed, but you still need to click through on
-Google's side:
-
-1. Go to [search.google.com/search-console](https://search.google.com/search-console), add (or return to) the
-   **URL prefix** property `https://koberheim.github.io/`.
-2. Click **Verify** — it should succeed immediately now that the tag is live.
-3. Once verified, go to **Sitemaps** in the left nav and submit:
-   `sitemap.xml` (resolves to `https://koberheim.github.io/sitemap.xml`).
-
-**Bonus:** [Bing Webmaster Tools](https://www.bing.com/webmasters) has an
-"Import from Google Search Console" button that covers Bing/ChatGPT-search/
-Copilot in about 30 seconds once GSC is verified.
 
 ### If you want a real custom domain later instead
 

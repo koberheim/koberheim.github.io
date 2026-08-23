@@ -45,6 +45,14 @@ searches/referrers are (or aren't) landing; if traffic shows up but $0
 revenue, the bottleneck has moved to monetization and Amazon Associates
 becomes the priority.
 
+**Update, same day:** human completed both Search Console (verification tag
+deployed, site verified, sitemap submitted) and Bing Webmaster Tools. Both
+halves of the highest-leverage discoverability step are done. The 4-week
+checkpoint clock starts from today (2026-08-23) — target check-in date
+**~2026-09-20**. The community-share step is still open and optional; it
+would pull useful, faster signal forward if done sooner, but isn't required
+to start the clock.
+
 ---
 
 ## Iteration 1 — 2026-08-23: Research, build, launch

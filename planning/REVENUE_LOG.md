@@ -13,6 +13,8 @@ clearly labeled as hypotheses) live in `VALIDATION.md`, never in this file.
 | 2026-08-23 | Cumulative tips | $0.00 | Ko-fi (just set up, no traffic yet) |
 | 2026-08-23 | Cumulative affiliate revenue | $0.00 | Not yet set up |
 | 2026-08-23 | Weekly sessions | not yet measured | GitHub Pages traffic (check Settings → Insights → Traffic) |
+| 2026-08-23 | Google Search Console | verified, sitemap submitted | Human account holder |
+| 2026-08-23 | Bing Webmaster Tools | verified/submitted | Human account holder |
 
 ## How to update this file
 
