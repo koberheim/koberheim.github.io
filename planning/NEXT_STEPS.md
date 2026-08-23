@@ -3,46 +3,42 @@
 The agent driving this project cannot open financial or identity-verified
 accounts — no bank account, no tax ID, no way to pass KYC. Everything that
 could be built and deployed for free using only GitHub has been done. The
-items below are the specific, small steps only a human can complete. Nothing
-else is blocked on you; the site works and is ready to deploy without any of
-these.
+items below are the specific, small steps only a human can complete.
 
-## 1. Enable GitHub Pages (required to go live)
+## Done
 
-The site is a static build with a GitHub Actions workflow
-(`.github/workflows/pages.yml`) ready to deploy it. One-time setup:
+1. ✅ **GitHub Pages is live** at `https://koberheim.github.io/Test-Website/`,
+   deploying automatically via `.github/workflows/pages.yml` on every push.
+2. ✅ **Tip jar wired up** — the footer "buy me a coffee" link points to
+   https://ko-fi.com/kober (2026-08-23).
 
-1. Merge this branch to the repo's default branch (or repoint the workflow's
-   `branches:` trigger at whatever branch you deploy from).
-2. In the repo: **Settings → Pages → Build and deployment → Source →
-   GitHub Actions**.
-3. Push to that branch (or re-run the workflow from the Actions tab). The
-   site will publish at `https://koberheim.github.io/Test-Website/` (update
-   the canonical URL / sitemap / robots.txt in the repo if you attach a
-   custom domain instead).
+## Remaining
 
-## 2. Set up a tip jar (needed for any revenue)
+### Custom domain (in progress — see conversation)
 
-The footer has a "buy me a coffee" link that currently points nowhere
-(`href="#support"`, marked with a `TODO(human)` comment in `index.html`).
-Recommended: [Ko-fi](https://ko-fi.com) — free, quick signup, supports
-one-time and recurring support, no platform fee on tips.
+You asked for a real domain instead of the `github.io` address. That needs a
+domain you purchase (typically ~$10-15/year from a registrar — this is the
+one recurring cost in the whole project, and it's optional). Once you own
+one, going live takes two steps:
 
-1. Create a Ko-fi account (or Buy Me a Coffee, whichever you prefer) and
-   connect a payout method.
-2. Send the resulting page URL (e.g. `https://ko-fi.com/yourhandle`) back so
-   it can be wired into the site, or edit the `href` in `index.html` yourself.
+1. Add a `CNAME` file to the repo containing just the domain, and set it in
+   **Settings → Pages → Custom domain**.
+2. At your registrar, point DNS at GitHub Pages (either an `ALIAS`/`ANAME`/four
+   `A` records at the apex, or a `CNAME` record if using a `www` subdomain —
+   exact records depend on which you pick).
 
-## 3. (Later, once traffic is proven) Amazon Associates affiliate account
+Ask the agent to do step 1 and give exact DNS records once you've picked and
+purchased a domain.
+
+### Amazon Associates affiliate account (later, once traffic is proven)
 
 Not needed for launch — the validation plan (`VALIDATION.md`) says to check
 for real traffic first. If/when there's a reason to believe visitors are
 using the tool, an Amazon Associates account would let equipment
-recommendations (tanks/filters/heaters) earn a commission. This requires your
-identity/tax details and a live site with content, which will exist once
-step 1 is done.
+recommendations (tanks/filters/heaters) earn a commission. Requires your
+identity/tax details.
 
-## 4. Sharing the tool in fishkeeping communities (optional, your call)
+### Sharing the tool in fishkeeping communities (optional, your call)
 
 Distribution plan in `VALIDATION.md` relies on one honest, non-spammy share
 in a relevant community (e.g. r/Aquariums, r/PlantedTank) rather than paid
