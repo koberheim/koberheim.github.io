@@ -20,10 +20,13 @@ python3 -m http.server 8000
 
 ## Structure
 
-- `index.html`, `style.css`, `app.js` — the site itself.
+- `index.html`, `style.css`, `app.js` — the calculator itself.
+- `guides/` — supporting SEO content, linked from the homepage.
 - `planning/BUSINESS_PLAN.md` — research, 10 scored ideas, the decision.
 - `planning/ASSUMPTIONS_AND_EVIDENCE.md` — what's evidenced vs. assumed, with sources.
 - `planning/VALIDATION.md` — the hypothesis and how it'll be checked against real data.
+- `planning/ITERATION_LOG.md` — the build → measure → bottleneck → improve loop, newest first.
+- `planning/MARKETING_PLAN.md` — distribution channels, and which need a human identity.
 - `planning/REVENUE_LOG.md` — actual measured results, kept separate from any projection.
 - `planning/NEXT_STEPS.md` — the handful of steps that need a human (payment/account setup).
-- `.github/workflows/pages.yml` — deploys the site to GitHub Pages on push to `main`.
+- `.github/workflows/pages.yml` — deploys the site to GitHub Pages on every push.

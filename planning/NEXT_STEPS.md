@@ -11,22 +11,32 @@ items below are the specific, small steps only a human can complete.
    `.github/workflows/pages.yml` on every push.
 2. ✅ **Tip jar wired up** — the footer "buy me a coffee" link points to
    https://ko-fi.com/kober (2026-08-23).
-3. ✅ **Domain decision made (2026-08-23):** rather than buying a domain, the
-   repo is being renamed to `koberheim.github.io` so the site serves at the
-   root `https://koberheim.github.io/` instead of a `/Test-Website` path —
-   free, no purchase needed. Internal links (canonical URL, sitemap,
-   robots.txt) are already updated to the new URL; the rename itself has to
-   happen in GitHub's UI (Settings → General → Repository name), which the
-   agent can't do. If you'd rather use a real custom domain later, that's
-   still possible — see the domain section below.
+3. ✅ **Repo renamed to `koberheim.github.io`** (2026-08-23) — site is live at
+   the root `https://koberheim.github.io/`, no purchase needed.
+4. ✅ **SEO pass (2026-08-23):** FAQ section with schema markup, two guide
+   pages targeting long-tail searches, Open Graph preview image, sitemap
+   updated. See `planning/BUSINESS_PLAN.md` iteration log for details.
 
 ## Remaining
 
-### Rename the repo to `koberheim.github.io` (only step left to go fully live)
+### Submit the sitemap to Google Search Console (biggest remaining lever, ~5 min, free)
 
-GitHub Settings → General → Repository name → `koberheim.github.io` → Rename.
-Nothing else needs to change; Pages settings and the deploy workflow carry
-over automatically.
+This is the single highest-leverage thing left, and only you can do it — it
+needs your Google login:
+
+1. Go to [search.google.com/search-console](https://search.google.com/search-console), add a property using
+   **URL prefix**: `https://koberheim.github.io/`.
+2. Verify ownership — the easiest method here is **HTML tag**: Google gives
+   you a `<meta name="google-site-verification" ...>` tag. Send it to the
+   agent (or paste it into `index.html`'s `<head>` yourself) and push.
+3. Once verified, submit the sitemap: `https://koberheim.github.io/sitemap.xml`.
+
+Without this, Google will still eventually find the site, but it can take
+weeks; Search Console usually gets it indexed in days.
+
+**Bonus:** [Bing Webmaster Tools](https://www.bing.com/webmasters) has an
+"Import from Google Search Console" button that does steps 1-3 for Bing/
+ChatGPT-search/Copilot in about 30 seconds once GSC is set up.
 
 ### If you want a real custom domain later instead
 
