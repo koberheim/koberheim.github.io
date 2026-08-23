@@ -7,19 +7,31 @@ items below are the specific, small steps only a human can complete.
 
 ## Done
 
-1. ✅ **GitHub Pages is live** at `https://koberheim.github.io/Test-Website/`,
-   deploying automatically via `.github/workflows/pages.yml` on every push.
+1. ✅ **GitHub Pages is live**, deploying automatically via
+   `.github/workflows/pages.yml` on every push.
 2. ✅ **Tip jar wired up** — the footer "buy me a coffee" link points to
    https://ko-fi.com/kober (2026-08-23).
+3. ✅ **Domain decision made (2026-08-23):** rather than buying a domain, the
+   repo is being renamed to `koberheim.github.io` so the site serves at the
+   root `https://koberheim.github.io/` instead of a `/Test-Website` path —
+   free, no purchase needed. Internal links (canonical URL, sitemap,
+   robots.txt) are already updated to the new URL; the rename itself has to
+   happen in GitHub's UI (Settings → General → Repository name), which the
+   agent can't do. If you'd rather use a real custom domain later, that's
+   still possible — see the domain section below.
 
 ## Remaining
 
-### Custom domain (in progress — see conversation)
+### Rename the repo to `koberheim.github.io` (only step left to go fully live)
 
-You asked for a real domain instead of the `github.io` address. That needs a
-domain you purchase (typically ~$10-15/year from a registrar — this is the
-one recurring cost in the whole project, and it's optional). Once you own
-one, going live takes two steps:
+GitHub Settings → General → Repository name → `koberheim.github.io` → Rename.
+Nothing else needs to change; Pages settings and the deploy workflow carry
+over automatically.
+
+### If you want a real custom domain later instead
+
+Optional, not needed now. Requires purchasing a domain (~$10-15/year from a
+registrar) — the one recurring cost in the whole project. Once you own one:
 
 1. Add a `CNAME` file to the repo containing just the domain, and set it in
    **Settings → Pages → Custom domain**.

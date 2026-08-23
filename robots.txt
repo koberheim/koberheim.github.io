@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://koberheim.github.io/Test-Website/sitemap.xml
+Sitemap: https://koberheim.github.io/sitemap.xml
