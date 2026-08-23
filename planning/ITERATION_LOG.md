@@ -5,6 +5,57 @@ Tracks the build → measure → identify bottleneck → improve loop from
 
 ---
 
+## Iteration 3 — 2026-08-23: Expert accuracy audit & product overhaul
+
+**Trigger:** a full review of the tool from a fishkeeping-accuracy standpoint,
+rather than a traffic-driven iteration. Full findings in `EXPERT_AUDIT.md`.
+
+**Bottleneck identified:** *product credibility.* Traffic work is wasted if a
+knowledgeable visitor immediately spots something wrong — and there was
+plenty to spot. The tool was pleasant but shallow, and one bug was visible
+within seconds of use.
+
+**What was found and fixed:**
+- **A real display bug:** choosing the "55 gal" preset showed 37.8 gal, and
+  29 gal showed 21.8 — the preset volume was being overwritten by a fixed
+  14"-height estimate. The 20-long and 29 gal presets displayed *identical*
+  volumes. Fixed; volumes are now authoritative and user-editable.
+- **The biggest functional gap:** no minimum-tank-size check at all. "Will
+  this fish fit this tank as an adult?" is the question that most often
+  prevents animal harm, and it wasn't being asked. Added `minTank` and
+  `minLen` per species, both enforced.
+- **Missing trap species.** The list omitted exactly the fish that cause the
+  worst beginner outcomes — common pleco, clown loach, bala shark, comet
+  goldfish, Chinese algae eater — all sold at 2" and reaching 10–18".
+- **No multiple-betta warning** despite the card saying "one per tank".
+- **No temperature compatibility model.**
+- Species count 27 → **70**, with new rules for fin-nipping (generalised
+  beyond bettas), shrimp/snail predation, territoriality, aggression mixing,
+  plant-eaters, jumpers, and mature-tank feeders.
+- UX: live stocking summary, reset, shareable plan links, category filters,
+  tag-aware search, min-tank/temperature on every card, two-tier warning
+  severity, and a sticky status bar so the budget stays visible while
+  scrolling a now much longer species list.
+
+**Self-inconsistency caught during verification:** re-checking the guide pages
+against the rebuilt dataset showed my own "beginner fish for a 10 gallon"
+guide recommending 3 bronze corydoras — a combination the improved calculator
+now correctly flags three ways (needs 20 gal, needs a 24" footprint, shoal too
+small). The guide was rewritten to recommend pygmy corydoras and to explain
+the distinction. A units error in the surface-area guide (raw inches labelled
+as "adjusted inches") was also corrected. Both guides' numbers were then
+re-verified against the live dataset programmatically.
+
+**Verification:** 10 scripted expert scenarios (min-tank, two bettas,
+temperature clash, fin-nipping, shrimp predation, territorial pair, a clean
+community, share-link roundtrip, category filter, tag search) all pass; all
+five tank presets verified exact; three pages load with zero console errors;
+no mobile horizontal overflow.
+
+**Next checkpoint:** unchanged — **~2026-09-20**, per `VALIDATION.md`.
+
+---
+
 ## Iteration 2 — 2026-08-23: SEO + marketing prep
 
 **Measured state at start of this iteration:** site live for less than a

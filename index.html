@@ -115,7 +115,7 @@
         <input id="tank-width" type="number" min="1" step="0.5" value="12" />
       </div>
       <div class="field">
-        <label for="tank-gallons">Approx. volume (gal)</label>
+        <label for="tank-gallons">Volume (gal)</label>
         <input id="tank-gallons" type="number" min="1" step="0.5" value="20" disabled />
       </div>
     </div>
@@ -141,11 +141,12 @@
       Footprint (length &times; width of the water's surface) matters more than
       raw gallons &mdash; a short, wide tank holds more fish safely than a tall,
       narrow one of the same volume, because oxygen exchange happens at the
-      surface. Don't know your footprint? Pick a common size above.
+      surface. Pick a common size above, or choose &ldquo;custom&rdquo; to enter
+      your own footprint and volume.
     </p>
   </section>
 
-  <section class="panel budget-panel" aria-live="polite">
+  <section class="panel budget-panel" id="top-of-results" aria-live="polite">
     <h2>2. Your stocking budget</h2>
     <div class="gauge-wrap">
       <div class="gauge">
@@ -158,13 +159,23 @@
     </div>
     <p class="status-line" id="status-line">Add some fish below to see your estimate.</p>
     <div id="warnings" class="warnings" role="alert"></div>
+
+    <div class="summary-head">
+      <h3>Your stocking list</h3>
+      <div class="summary-actions">
+        <button type="button" id="share-btn" class="mini-btn">Copy share link</button>
+        <button type="button" id="reset-btn" class="mini-btn ghost">Reset</button>
+      </div>
+    </div>
+    <div id="summary" class="summary"></div>
   </section>
 
   <section class="panel species-panel" aria-labelledby="species-heading">
     <div class="species-head">
       <h2 id="species-heading">3. Pick your fish</h2>
-      <input id="species-search" type="search" placeholder="Search species&hellip;" aria-label="Search species" />
+      <input id="species-search" type="search" placeholder="Search name or trait&hellip;" aria-label="Search species by name or trait" />
     </div>
+    <div id="category-chips" class="chips" role="group" aria-label="Filter by category"></div>
     <div class="species-grid" id="species-grid"></div>
   </section>
 
@@ -181,17 +192,26 @@
       same-length tetra.
     </p>
     <p>
-      This is a <strong>planning estimate</strong>, not a guarantee. It checks
-      for a handful of well-known conflicts (fin-nippers with long-fin fish,
-      goldfish mixed with tropical community fish, adult predators with very
-      small fish, schooling fish kept in too-small groups) &mdash; it is
-      <strong>not</strong> a full compatibility matrix. Always research the
-      adult size, temperament and specific care needs of any species before you
-      buy, cycle every new tank fully, and go slower than the calculator allows
-      if you're new to the hobby. Species data here covers ~25 common beginner
-      freshwater fish and invertebrates, not the full hobby &mdash; if you keep
-      more exotic species or a saltwater tank, a larger tool may serve you
-      better.
+      Bioload isn't the only thing that matters, so the calculator also checks
+      your list against each species' <strong>minimum tank volume and
+      length</strong> (a fish that outgrows the tank is a problem no filter
+      solves), whether every species shares a workable
+      <strong>temperature range</strong>, and a set of well-documented
+      conflicts: fin-nippers with long-finned fish, adult predators with
+      bite-sized tankmates, shrimp with fish that hunt them, territorial
+      species competing for the same space, multiple male bettas, and shoaling
+      fish kept in groups too small to feel secure.
+    </p>
+    <p>
+      This is a <strong>planning estimate</strong>, not a guarantee, and it is
+      <strong>not</strong> a complete compatibility matrix. Species figures are
+      typical adult values from standard care-sheet ranges &mdash; individual
+      fish, strains and setups vary. Always research the adult size,
+      temperament and specific needs of any species before you buy, cycle every
+      new tank fully, and go slower than the calculator allows if you're new to
+      the hobby. Coverage is roughly 70 of the most commonly kept freshwater
+      species and invertebrates, chosen for accuracy over raw count &mdash; it
+      doesn't cover saltwater, or most specialist and wild-caught species.
     </p>
     <p class="footnote" style="border-top:none; margin-top:1.1rem; padding-top:0;">
       Related reading:
@@ -243,12 +263,35 @@
     <div class="faq-item">
       <h3>Why isn't my fish in the species list?</h3>
       <p>
-        The list intentionally covers ~25 common beginner freshwater species,
-        not the whole hobby &mdash; keeping it small is what keeps the data
-        accurate and the page fast. If you keep more specialized species, a
-        larger database like AqAdvisor will have more coverage; feel free to
-        suggest an addition on
+        The list covers roughly 70 of the most commonly kept freshwater species
+        and invertebrates &mdash; deliberately curated rather than exhaustive,
+        because hand-checked data is more useful than a big list of rough
+        guesses. It doesn't cover saltwater or most specialist and wild-caught
+        species; for those, a larger database like AqAdvisor has more coverage.
+        Missing something common? Suggest it on
         <a href="https://github.com/koberheim/koberheim.github.io" target="_blank" rel="noopener">GitHub</a>.
+      </p>
+    </div>
+
+    <div class="faq-item">
+      <h3>My fish is small at the store &mdash; why does it say I need a huge tank?</h3>
+      <p>
+        Because pet shops sell juveniles. Common plecos are sold at 2&Prime;
+        and reach roughly 18&Prime;; clown loaches and bala sharks are sold at
+        an inch or two and reach a foot; comet goldfish are pond fish. These
+        are the most common expensive mistakes in the hobby, which is why the
+        calculator flags adult size rather than the size you'd bring home.
+      </p>
+    </div>
+
+    <div class="faq-item">
+      <h3>Do I need to cycle my tank first?</h3>
+      <p>
+        Yes &mdash; and this calculator assumes you have. A fully cycled tank
+        has enough beneficial bacteria to convert fish waste (ammonia) into
+        less harmful nitrate. Adding a full stocking list to a brand-new tank
+        will cause an ammonia spike regardless of what any calculator says.
+        Cycle first, then add fish gradually, testing as you go.
       </p>
     </div>
 
@@ -258,6 +301,12 @@
     </div>
   </section>
 </main>
+
+<div id="sticky-status" class="sticky-status" aria-hidden="true">
+  <span class="sticky-pct" id="sticky-pct">0%</span>
+  <span class="sticky-text" id="sticky-text">Add some fish to see your estimate</span>
+  <a class="sticky-jump" href="#top-of-results">See details</a>
+</div>
 
 <footer id="support" class="site-footer">
   <div class="footer-inner">
