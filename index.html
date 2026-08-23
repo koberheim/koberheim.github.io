@@ -11,6 +11,8 @@
 <meta property="og:title" content="Aquarium Stocking Calculator — Plan a Healthy Tank" />
 <meta property="og:description" content="A free, honest, no-signup aquarium stocking calculator for beginner freshwater fishkeepers." />
 <meta property="og:url" content="https://koberheim.github.io/" />
+<meta property="og:image" content="https://koberheim.github.io/og-image.png" />
+<meta name="twitter:card" content="summary_large_image" />
 
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230f3330'/%3E%3Cpath d='M10 34c8-14 24-16 34-6-4 10-16 16-26 12-3 4-6 4-8 2 2-3 2-5 0-8z' fill='%2377d9c4'/%3E%3Ccircle cx='40' cy='27' r='2.4' fill='%230f3330'/%3E%3C/svg%3E" />
 
@@ -29,6 +31,29 @@
   "operatingSystem": "Any",
   "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
   "description": "A free, no-signup aquarium stocking calculator for beginner freshwater fishkeepers, based on the surface-area rule with per-species bioload weighting."
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Is the \"1 inch of fish per gallon\" rule wrong?",
+      "acceptedAnswer": { "@type": "Answer", "text": "It's incomplete rather than flat-out wrong — it ignores tank shape, filtration, and how heavily different species pollute the water. A tall, narrow tank holds fewer fish safely than a short, wide tank of the same volume, and a goldfish produces far more waste than an inch of neon tetra." }
+    },
+    {
+      "@type": "Question",
+      "name": "What counts as overstocked in an aquarium?",
+      "acceptedAnswer": { "@type": "Answer", "text": "There's no single hard line. Above roughly 100% of a calculated stocking budget, ammonia and nitrite can build up faster than filtration and water changes can process it, especially in a newer tank." }
+    },
+    {
+      "@type": "Question",
+      "name": "Does a planted tank let me keep more fish?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Somewhat — live plants use ammonia and nitrate as a nutrient and add some daytime oxygen, so a heavily planted tank gets a modest bump in stocking capacity. It is not a substitute for filtration or water changes." }
+    }
+  ]
 }
 </script>
 </head>
@@ -167,6 +192,69 @@
       more exotic species or a saltwater tank, a larger tool may serve you
       better.
     </p>
+    <p class="footnote" style="border-top:none; margin-top:1.1rem; padding-top:0;">
+      Related reading:
+      <a href="guides/surface-area-rule.html">the surface-area rule, explained</a> ·
+      <a href="guides/beginner-fish-for-a-10-gallon-tank.html">beginner fish that actually fit a 10 gallon</a>
+    </p>
+  </section>
+
+  <section class="panel faq-panel" id="faq" aria-labelledby="faq-heading">
+    <h2 id="faq-heading">Common questions</h2>
+
+    <div class="faq-item">
+      <h3>Is the &ldquo;1 inch of fish per gallon&rdquo; rule wrong?</h3>
+      <p>
+        It's incomplete rather than flat-out wrong &mdash; it was never a bad
+        starting point for small tetras in a small tank, but it ignores tank
+        shape, filtration, and how heavily different species pollute the
+        water. A tall, narrow 20 gallon holds noticeably fewer fish safely
+        than a short, wide 20 gallon, and a single goldfish produces far more
+        waste than an inch of neon tetra. See our
+        <a href="guides/surface-area-rule.html">surface-area rule guide</a>
+        for the longer explanation.
+      </p>
+    </div>
+
+    <div class="faq-item">
+      <h3>What counts as "overstocked"?</h3>
+      <p>
+        There's no single hard line &mdash; it's a spectrum of risk. Above
+        roughly 100% of the budget this calculator estimates, ammonia and
+        nitrite can build up faster than your filter and water changes can
+        process it, especially in a newer, not-fully-cycled tank. Going a
+        little over isn't automatically dangerous if you're doing frequent
+        water changes and have strong filtration; going a lot over usually is.
+      </p>
+    </div>
+
+    <div class="faq-item">
+      <h3>Does a planted tank really let me keep more fish?</h3>
+      <p>
+        Somewhat, yes &mdash; live plants use ammonia/nitrate as a nutrient
+        and can add some daytime oxygen, so a heavily (not lightly) planted
+        tank gets a modest bump in this calculator. It's not a substitute for
+        filtration or water changes, and a few plants scattered around a tank
+        won't move the number much.
+      </p>
+    </div>
+
+    <div class="faq-item">
+      <h3>Why isn't my fish in the species list?</h3>
+      <p>
+        The list intentionally covers ~25 common beginner freshwater species,
+        not the whole hobby &mdash; keeping it small is what keeps the data
+        accurate and the page fast. If you keep more specialized species, a
+        larger database like AqAdvisor will have more coverage; feel free to
+        suggest an addition on
+        <a href="https://github.com/koberheim/koberheim.github.io" target="_blank" rel="noopener">GitHub</a>.
+      </p>
+    </div>
+
+    <div class="faq-item">
+      <h3>Is this calculator affiliated with Etsy, Amazon, or AqAdvisor?</h3>
+      <p>No. Tankwise is an independent, free tool with no affiliation to any retailer or other calculator.</p>
+    </div>
   </section>
 </main>
 
