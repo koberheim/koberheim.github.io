@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Aquarium Stocking Calculator — Plan a Healthy Tank</title>
+<meta name="description" content="A free, honest aquarium stocking calculator for beginner freshwater fishkeepers. Enter your tank size and filtration, pick fish, and see a bioload-based stocking estimate — no signup, no clutter." />
+<link rel="canonical" href="https://koberheim.github.io/Test-Website/" />
+
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Aquarium Stocking Calculator — Plan a Healthy Tank" />
+<meta property="og:description" content="A free, honest, no-signup aquarium stocking calculator for beginner freshwater fishkeepers." />
+<meta property="og:url" content="https://koberheim.github.io/Test-Website/" />
+
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230f3330'/%3E%3Cpath d='M10 34c8-14 24-16 34-6-4 10-16 16-26 12-3 4-6 4-8 2 2-3 2-5 0-8z' fill='%2377d9c4'/%3E%3Ccircle cx='40' cy='27' r='2.4' fill='%230f3330'/%3E%3C/svg%3E" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,500&family=Archivo:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+<link rel="stylesheet" href="style.css" />
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Aquarium Stocking Calculator",
+  "applicationCategory": "UtilitiesApplication",
+  "operatingSystem": "Any",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+  "description": "A free, no-signup aquarium stocking calculator for beginner freshwater fishkeepers, based on the surface-area rule with per-species bioload weighting."
+}
+</script>
+</head>
+<body>
+
+<div class="bubbles" aria-hidden="true">
+  <span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+</div>
+
+<header class="hero">
+  <nav class="topbar">
+    <div class="brand"><span class="brand-mark">◗</span> Tankwise</div>
+    <a class="tip-link" href="#support">Support this tool</a>
+  </nav>
+
+  <div class="hero-copy">
+    <p class="eyebrow">Free · No signup · Built for beginners</p>
+    <h1>Know before you stock. <span class="accent">Not after.</span></h1>
+    <p class="lede">
+      A stocking calculator that uses the surface-area rule instead of the
+      outdated &ldquo;1 inch of fish per gallon&rdquo; myth &mdash; plus a
+      bioload weighting so messy fish count for more than they look like they
+      should. Pick your tank, pick your fish, see where you stand.
+    </p>
+  </div>
+
+  <svg class="wave" viewBox="0 0 1440 90" preserveAspectRatio="none" aria-hidden="true">
+    <path d="M0,40 C240,90 480,0 720,30 C960,60 1200,10 1440,40 L1440,90 L0,90 Z"></path>
+  </svg>
+</header>
+
+<main>
+  <section class="panel tank-panel" aria-labelledby="tank-heading">
+    <h2 id="tank-heading">1. Your tank</h2>
+
+    <div class="field-row">
+      <div class="field">
+        <label for="tank-preset">Common tank size</label>
+        <select id="tank-preset">
+          <option value="custom">Custom footprint&hellip;</option>
+          <option value="10,20,10">10 gal (20&Prime; &times; 10&Prime;)</option>
+          <option value="20,30,12" selected>20 gal long (30&Prime; &times; 12&Prime;)</option>
+          <option value="29,30,12">29 gal (30&Prime; &times; 12&Prime;)</option>
+          <option value="40,36,18">40 gal breeder (36&Prime; &times; 18&Prime;)</option>
+          <option value="55,48,13">55 gal (48&Prime; &times; 13&Prime;)</option>
+          <option value="75,48,18">75 gal (48&Prime; &times; 18&Prime;)</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="field-row" id="footprint-row">
+      <div class="field">
+        <label for="tank-length">Footprint length (in)</label>
+        <input id="tank-length" type="number" min="1" step="0.5" value="30" />
+      </div>
+      <div class="field">
+        <label for="tank-width">Footprint width (in)</label>
+        <input id="tank-width" type="number" min="1" step="0.5" value="12" />
+      </div>
+      <div class="field">
+        <label for="tank-gallons">Approx. volume (gal)</label>
+        <input id="tank-gallons" type="number" min="1" step="0.5" value="20" disabled />
+      </div>
+    </div>
+
+    <div class="field-row">
+      <div class="field">
+        <label for="filtration">Filtration</label>
+        <select id="filtration">
+          <option value="20">Light (small HOB / sponge only)</option>
+          <option value="12" selected>Standard (properly sized HOB/canister)</option>
+          <option value="8">Strong (oversized filter + frequent water changes)</option>
+        </select>
+      </div>
+      <div class="field checkbox-field">
+        <label for="planted">
+          <input id="planted" type="checkbox" />
+          Heavily planted tank <span class="hint">(+15% budget)</span>
+        </label>
+      </div>
+    </div>
+
+    <p class="footnote">
+      Footprint (length &times; width of the water's surface) matters more than
+      raw gallons &mdash; a short, wide tank holds more fish safely than a tall,
+      narrow one of the same volume, because oxygen exchange happens at the
+      surface. Don't know your footprint? Pick a common size above.
+    </p>
+  </section>
+
+  <section class="panel budget-panel" aria-live="polite">
+    <h2>2. Your stocking budget</h2>
+    <div class="gauge-wrap">
+      <div class="gauge">
+        <div class="gauge-fill" id="gauge-fill"></div>
+        <div class="gauge-marker" id="gauge-marker" style="left:80%"></div>
+      </div>
+      <div class="gauge-labels">
+        <span>0%</span><span>Comfortable</span><span>Full</span><span id="gauge-pct">0%</span>
+      </div>
+    </div>
+    <p class="status-line" id="status-line">Add some fish below to see your estimate.</p>
+    <div id="warnings" class="warnings" role="alert"></div>
+  </section>
+
+  <section class="panel species-panel" aria-labelledby="species-heading">
+    <div class="species-head">
+      <h2 id="species-heading">3. Pick your fish</h2>
+      <input id="species-search" type="search" placeholder="Search species&hellip;" aria-label="Search species" />
+    </div>
+    <div class="species-grid" id="species-grid"></div>
+  </section>
+
+  <section class="panel method-panel" id="method">
+    <h2>How this works (and what it isn't)</h2>
+    <p>
+      This calculator uses the <strong>surface-area rule</strong> &mdash; roughly
+      1&Prime; of slim-bodied fish per 12 sq. in. of water surface for a
+      standard, well-filtered tank &mdash; instead of the widely-repeated but
+      inaccurate &ldquo;1 inch per gallon&rdquo; rule, which ignores oxygen
+      exchange, filtration and tank shape entirely. On top of that base budget,
+      each species carries a rough <strong>bioload weight</strong> so that
+      heavier waste-producers (like plecos or goldfish) count for more than a
+      same-length tetra.
+    </p>
+    <p>
+      This is a <strong>planning estimate</strong>, not a guarantee. It checks
+      for a handful of well-known conflicts (fin-nippers with long-fin fish,
+      goldfish mixed with tropical community fish, adult predators with very
+      small fish, schooling fish kept in too-small groups) &mdash; it is
+      <strong>not</strong> a full compatibility matrix. Always research the
+      adult size, temperament and specific care needs of any species before you
+      buy, cycle every new tank fully, and go slower than the calculator allows
+      if you're new to the hobby. Species data here covers ~25 common beginner
+      freshwater fish and invertebrates, not the full hobby &mdash; if you keep
+      more exotic species or a saltwater tank, a larger tool may serve you
+      better.
+    </p>
+  </section>
+</main>
+
+<footer id="support" class="site-footer">
+  <div class="footer-inner">
+    <p class="footer-tagline">Built to be useful, not to sell you anything.</p>
+    <p>
+      If this saved you from an expensive mistake, you can
+      <!-- TODO(human): replace href with your real Ko-fi/Buy Me a Coffee link, e.g. https://ko-fi.com/yourhandle -->
+      <a href="#support" id="kofi-link" class="kofi-button">buy me a coffee</a>.
+      Nothing is tracked, nothing is required.
+    </p>
+    <p class="footer-fine">
+      No accounts, no ads, no data collection. Calculations run entirely in
+      your browser. Questions or corrections welcome via
+      <a href="https://github.com/koberheim/Test-Website" target="_blank" rel="noopener">GitHub</a>.
+    </p>
+  </div>
+</footer>
+
+<script src="app.js"></script>
+</body>
+</html>
