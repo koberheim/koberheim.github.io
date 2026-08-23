@@ -16,27 +16,26 @@ items below are the specific, small steps only a human can complete.
 4. ✅ **SEO pass (2026-08-23):** FAQ section with schema markup, two guide
    pages targeting long-tail searches, Open Graph preview image, sitemap
    updated. See `planning/BUSINESS_PLAN.md` iteration log for details.
+5. ✅ **Google Search Console verification tag added** (2026-08-23) — you
+   provided the `google-site-verification` meta tag, it's live in
+   `index.html`'s `<head>` and deployed.
 
 ## Remaining
 
-### Submit the sitemap to Google Search Console (biggest remaining lever, ~5 min, free)
+### Finish the Google Search Console setup (~2 min, free)
 
-This is the single highest-leverage thing left, and only you can do it — it
-needs your Google login:
+The verification tag is deployed, but you still need to click through on
+Google's side:
 
-1. Go to [search.google.com/search-console](https://search.google.com/search-console), add a property using
-   **URL prefix**: `https://koberheim.github.io/`.
-2. Verify ownership — the easiest method here is **HTML tag**: Google gives
-   you a `<meta name="google-site-verification" ...>` tag. Send it to the
-   agent (or paste it into `index.html`'s `<head>` yourself) and push.
-3. Once verified, submit the sitemap: `https://koberheim.github.io/sitemap.xml`.
-
-Without this, Google will still eventually find the site, but it can take
-weeks; Search Console usually gets it indexed in days.
+1. Go to [search.google.com/search-console](https://search.google.com/search-console), add (or return to) the
+   **URL prefix** property `https://koberheim.github.io/`.
+2. Click **Verify** — it should succeed immediately now that the tag is live.
+3. Once verified, go to **Sitemaps** in the left nav and submit:
+   `sitemap.xml` (resolves to `https://koberheim.github.io/sitemap.xml`).
 
 **Bonus:** [Bing Webmaster Tools](https://www.bing.com/webmasters) has an
-"Import from Google Search Console" button that does steps 1-3 for Bing/
-ChatGPT-search/Copilot in about 30 seconds once GSC is set up.
+"Import from Google Search Console" button that covers Bing/ChatGPT-search/
+Copilot in about 30 seconds once GSC is verified.
 
 ### If you want a real custom domain later instead
 
