@@ -15,7 +15,7 @@
 <meta property="og:image" content="https://koberheim.github.io/og-image.png" />
 <meta name="twitter:card" content="summary_large_image" />
 
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%230a0f0e'/%3E%3Cpath d='M8 33c8-13 25-15 34-6-4 10-17 15-26 11-3 4-6 4-8 2 2-3 2-5 0-7z' fill='%23d9a05c'/%3E%3Ccircle cx='38' cy='27' r='2.2' fill='%230a0f0e'/%3E%3Cpath d='M42 27l12-7v14z' fill='%23a97733'/%3E%3C/svg%3E" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='8' fill='%23f4eee1'/%3E%3Cpath d='M8 33c8-13 25-15 34-6-4 10-17 15-26 11-3 4-6 4-8 2 2-3 2-5 0-7z' fill='%23a2601f'/%3E%3Ccircle cx='38' cy='27' r='2.2' fill='%23f4eee1'/%3E%3Cpath d='M42 27l12-7v14z' fill='%237d4817'/%3E%3C/svg%3E" />
 
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -23,7 +23,7 @@
 
 <!-- Asset URLs carry a version so a redeploy can't be masked by a stale
      browser cache. Bump ?v= whenever style.css or app.js changes. -->
-<link rel="stylesheet" href="style.css?v=4" />
+<link rel="stylesheet" href="style.css?v=5" />
 
 <script type="application/ld+json">
 {
@@ -59,6 +59,11 @@
   ]
 }
 </script>
+<script>
+// Set the theme before first paint so there is no flash of the wrong palette.
+(function(){try{var t=localStorage.getItem("tankwise-theme");
+if(t==="dark")document.documentElement.setAttribute("data-theme","dark");}catch(e){}})();
+</script>
 </head>
 <body>
 
@@ -69,7 +74,10 @@
 <header class="hero">
   <nav class="topbar">
     <div class="brand">Tankwise<span class="brand-rule"></span></div>
-    <a class="tip-link" href="#support">Support this tool</a>
+    <div class="topbar-actions">
+      <button type="button" id="theme-toggle" class="theme-toggle"></button>
+      <a class="tip-link" href="#support">Support this tool</a>
+    </div>
   </nav>
 
   <div class="hero-copy">
@@ -120,7 +128,7 @@
           </g>
         </g>
         <!-- plate rule + caption -->
-        <g stroke="#33443f" stroke-width="1">
+        <g stroke="#33443f" stroke-width="1" class="plate-rule">
           <path d="M92 168h180" />
         </g>
       </svg>
@@ -376,6 +384,7 @@
   </div>
 </footer>
 
-<script src="app.js?v=4"></script>
+<script src="app.js?v=5"></script>
+<script src="theme.js?v=5"></script>
 </body>
 </html>
