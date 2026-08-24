@@ -231,8 +231,34 @@ h1, h2, h3 {
   align-items: baseline;
   justify-content: space-between;
   gap: 1rem;
-  padding-bottom: 1.4rem;
+  padding-bottom: 1rem;
+}
+
+/* tool switcher — a plate-index for the whole site, not just this page */
+.tool-nav {
+  max-width: 940px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem 1.4rem;
+  padding-bottom: 1.1rem;
   border-bottom: 1px solid var(--line-soft);
+}
+.tool-nav a {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  text-decoration: none;
+  color: var(--muted);
+  padding-bottom: 0.3rem;
+  border-bottom: 2px solid transparent;
+  transition: color 0.18s, border-color 0.18s;
+}
+.tool-nav a:hover { color: var(--fg); }
+.tool-nav a.on {
+  color: var(--accent);
+  border-bottom-color: var(--accent);
 }
 
 .brand {
@@ -876,6 +902,126 @@ input:focus-visible {
   text-align: center;
 }
 .species-card:not(.active) .stepper .count { color: var(--muted); }
+
+/* ---------- acclimation timer ---------- */
+.recommendation {
+  margin-top: 1rem;
+  padding: 0.8rem 0.95rem;
+  border-left: 2px solid var(--accent);
+  background: var(--note-wash);
+  font-size: 0.88rem;
+}
+.recommendation p { margin: 0; color: var(--text); }
+.recommendation strong { color: var(--fg); }
+
+.tap-btn {
+  width: 100%;
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  font-weight: 500;
+  color: var(--fg);
+  background: var(--bg-2);
+  border: 1px dashed var(--line-bright);
+  border-radius: 2px;
+  padding: 1.4rem;
+  cursor: pointer;
+  transition: background 0.1s, border-color 0.15s, transform 0.05s;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+.tap-btn:hover { border-color: var(--accent); }
+.tap-btn:active { background: var(--active-b); transform: scale(0.99); }
+
+.tap-readout {
+  margin-top: 0.7rem;
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  color: var(--muted);
+  text-align: center;
+}
+.tap-readout strong { color: var(--accent); }
+
+.timer-display {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-top: 1.4rem;
+  padding-top: 1.4rem;
+  border-top: 1px solid var(--line-soft);
+}
+
+.timer-ring-wrap {
+  position: relative;
+  width: 200px;
+  height: 200px;
+}
+.timer-ring { width: 100%; height: 100%; transform: rotate(-90deg); }
+.timer-ring-track {
+  fill: none;
+  stroke: var(--line);
+  stroke-width: 5;
+}
+.timer-ring-progress {
+  fill: none;
+  stroke: var(--accent);
+  stroke-width: 5;
+  stroke-linecap: round;
+  transition: stroke-dashoffset 0.25s linear;
+}
+.timer-time {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-mono);
+  font-size: 2rem;
+  font-weight: 600;
+  color: var(--fg);
+}
+
+.timer-controls {
+  display: flex;
+  gap: 0.6rem;
+  margin-top: 1.3rem;
+}
+.timer-btn {
+  padding: 0.55rem 1.3rem;
+  font-size: 0.7rem;
+}
+.timer-btn:disabled { opacity: 0.4; cursor: not-allowed; }
+
+.timer-display .status-line { margin-top: 1rem; }
+
+/* ---------- data table (schedules, dilution steps) ---------- */
+.table-wrap { overflow-x: auto; }
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+}
+.data-table th {
+  text-align: left;
+  font-size: 0.66rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--muted);
+  font-weight: 500;
+  padding: 0.5rem 0.8rem;
+  border-bottom: 1px solid var(--line-bright);
+}
+.data-table td {
+  padding: 0.45rem 0.8rem;
+  border-bottom: 1px dotted var(--line);
+  color: var(--text);
+}
+.data-table tr.hit td {
+  color: var(--good);
+  font-weight: 600;
+}
+.data-table tr:last-child td { border-bottom: none; }
 
 /* ---------- prose ---------- */
 .method-panel p,

@@ -23,7 +23,7 @@
 
 <!-- Asset URLs carry a version so a redeploy can't be masked by a stale
      browser cache. Bump ?v= whenever style.css or app.js changes. -->
-<link rel="stylesheet" href="style.css?v=5" />
+<link rel="stylesheet" href="style.css?v=6" />
 
 <script type="application/ld+json">
 {
@@ -78,6 +78,12 @@ if(t==="dark")document.documentElement.setAttribute("data-theme","dark");}catch(
       <button type="button" id="theme-toggle" class="theme-toggle"></button>
       <a class="tip-link" href="#support">Support this tool</a>
     </div>
+  </nav>
+
+  <nav class="tool-nav" aria-label="Tankwise tools">
+    <a href="index.html" class="on">Stocking calculator</a>
+    <a href="tools/water-change-calculator.html">Water change calculator</a>
+    <a href="tools/drip-acclimation-timer.html">Acclimation timer</a>
   </nav>
 
   <div class="hero-copy">
@@ -275,6 +281,10 @@ if(t==="dark")document.documentElement.setAttribute("data-theme","dark");}catch(
       Related reading:
       <a href="guides/surface-area-rule.html">the surface-area rule, explained</a> ·
       <a href="guides/beginner-fish-for-a-10-gallon-tank.html">beginner fish that actually fit a 10 gallon</a>
+      <br />
+      Related tools:
+      <a href="tools/water-change-calculator.html">water change &amp; nitrate dilution calculator</a> ·
+      <a href="tools/drip-acclimation-timer.html">drip acclimation timer</a>
     </p>
   </section>
 
@@ -384,7 +394,8 @@ if(t==="dark")document.documentElement.setAttribute("data-theme","dark");}catch(
   </div>
 </footer>
 
-<script src="app.js?v=5"></script>
-<script src="theme.js?v=5"></script>
+<script src="species-data.js?v=6"></script>
+<script src="app.js?v=6"></script>
+<script src="theme.js?v=6"></script>
 </body>
 </html>

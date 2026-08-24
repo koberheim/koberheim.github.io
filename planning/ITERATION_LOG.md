@@ -5,6 +5,65 @@ Tracks the build → measure → identify bottleneck → improve loop from
 
 ---
 
+## Iteration 4 — 2026-08-24: Multi-tool expansion
+
+**Trigger:** user request to research aquarium-community tool needs and add
+1-2 more tools, turning Tankwise into a small multi-tool site.
+
+**Research, and an honest limitation:** the plan was to read r/Aquariums,
+r/PlantedTank, r/shrimptank, r/discus directly for requested tools. Both
+`reddit.com` and `old.reddit.com` are blocked to this environment's fetcher,
+so — same as the original research — the method was web search surfacing
+existing competitor tooling as demand evidence, not direct thread-reading.
+Documented in full, including the exact tools checked and why each was or
+wasn't picked, in `planning/MULTI_TOOL_RESEARCH.md`.
+
+**What that research found:** every candidate niche checked (CO2 calculator,
+salt dosing, RO remineralization, water-change/nitrate dilution, drip
+acclimation) is already saturated with dedicated competitors — consistent
+with iteration 1's finding, now confirmed a second time across five more
+niches. That ruled out "new calculator, new niche" as a strategy again. The
+two tools selected instead lean on two things standalone competitors don't
+have: a tank profile already sitting in this site's localStorage, and (for
+the timer) an actual live interaction instead of a static formula page.
+
+**Built:**
+1. **Water change / nitrate dilution calculator** (`tools/water-change-calculator.html`)
+   — exact dilution math including a tap-water-nitrate term most competitors
+   assume away, a real multi-change schedule table (directly answering the
+   "two 25% ≠ one 50%" misconception), an "unreachable target" check when
+   source water itself exceeds the target, and auto-fill from the stocking
+   calculator's saved tank volume.
+2. **Drip acclimation timer** (`tools/drip-acclimation-timer.html`) — a
+   working countdown (timestamp-based, so it stays correct across a
+   backgrounded tab) with an end chime, a tap-to-measure drip-rate tool, and
+   species-aware duration pulled from the same species register the stocking
+   calculator uses (shrimp and water-sensitive/advanced species get a
+   longer, gentler default).
+
+**Refactor along the way:** extracted the 70-species dataset out of `app.js`
+into `species-data.js`, shared by both the stocking calculator and the new
+timer, specifically so the two tools can't drift into disagreeing with each
+other about the same species.
+
+**Verification:** scripted tests covering — dilution math against hand
+calculation (50% and tap-water-adjusted cases), the unreachable-target and
+already-there edge cases, the schedule table's raw cell values (two apparent
+"bugs" during testing turned out to be test-script artifacts: `newPage()`
+creating a fresh isolated context per call rather than real cross-page
+storage, and `allTextContents()` concatenating table cells without a
+separator — both re-verified correctly in a single real browsing session),
+species-based timer recommendations (shrimp → 75 min/1.5 drops-sec, discus →
+75 min/2.5, neon tetra → default 40 min/3), the tap-to-measure tool, a live
+timer run to actual completion, pause/resume, nav presence and correct
+active-state across all 5 pages, and no mobile horizontal overflow.
+
+**Next checkpoint:** unchanged, **~2026-09-20** — these tools add surface
+area for the same traffic problem the checkpoint already measures, not a new
+metric to track separately yet.
+
+---
+
 ## Iteration 3 — 2026-08-23: Expert accuracy audit & product overhaul
 
 **Trigger:** a full review of the tool from a fishkeeping-accuracy standpoint,

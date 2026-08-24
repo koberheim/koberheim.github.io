@@ -1,0 +1,263 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Water Change &amp; Nitrate Dilution Calculator — Tankwise</title>
+<meta name="description" content="Free aquarium water change calculator. Enter your current and target nitrate to get the exact water-change percentage — plus a real multi-week schedule, since repeated small changes don't add up the way people assume." />
+<link rel="canonical" href="https://koberheim.github.io/tools/water-change-calculator.html" />
+<meta name="google-site-verification" content="kkykua_KY_vLJIFKg8GfnX-6izK89qSfB3a8kxtB8u4" />
+
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Water Change &amp; Nitrate Dilution Calculator" />
+<meta property="og:description" content="Exact water-change percentage for your target nitrate, plus a real dilution schedule for repeated smaller changes." />
+<meta property="og:url" content="https://koberheim.github.io/tools/water-change-calculator.html" />
+<meta property="og:image" content="https://koberheim.github.io/og-image.png" />
+<meta name="twitter:card" content="summary_large_image" />
+
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='8' fill='%23f4eee1'/%3E%3Cpath d='M8 33c8-13 25-15 34-6-4 10-17 15-26 11-3 4-6 4-8 2 2-3 2-5 0-7z' fill='%23a2601f'/%3E%3Ccircle cx='38' cy='27' r='2.2' fill='%23f4eee1'/%3E%3Cpath d='M42 27l12-7v14z' fill='%237d4817'/%3E%3C/svg%3E" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="../style.css?v=6" />
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Water Change & Nitrate Dilution Calculator",
+  "applicationCategory": "UtilitiesApplication",
+  "operatingSystem": "Any",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+  "description": "A free water change calculator for aquariums: exact dilution percentage for a target nitrate level, plus a repeated-change schedule."
+}
+</script>
+<script>
+(function(){try{var t=localStorage.getItem("tankwise-theme");
+if(t==="dark")document.documentElement.setAttribute("data-theme","dark");}catch(e){}})();
+</script>
+</head>
+<body>
+
+<div class="bubbles" aria-hidden="true">
+  <span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+</div>
+
+<header class="hero">
+  <nav class="topbar">
+    <a class="brand" href="../index.html">Tankwise<span class="brand-rule"></span></a>
+    <div class="topbar-actions">
+      <button type="button" id="theme-toggle" class="theme-toggle"></button>
+      <a class="tip-link" href="../index.html#support">Support this tool</a>
+    </div>
+  </nav>
+
+  <nav class="tool-nav" aria-label="Tankwise tools">
+    <a href="../index.html">Stocking calculator</a>
+    <a href="water-change-calculator.html" class="on">Water change calculator</a>
+    <a href="drip-acclimation-timer.html">Acclimation timer</a>
+  </nav>
+
+  <div class="hero-copy">
+    <div class="hero-text">
+      <p class="eyebrow">Water change &amp; nitrate dilution</p>
+      <h1>How much water. <span class="accent">Not a guess.</span></h1>
+      <p class="lede">
+        Dilution is exact math, not folklore &mdash; two 25% changes don't
+        equal one 50%. Enter your numbers and get the real percentage, plus
+        what a repeated schedule of smaller changes actually does over time.
+      </p>
+    </div>
+  </div>
+
+  <div class="masthead-meta">
+    <span><b>Exact</b> dilution math</span>
+    <span><b>Tap water</b> nitrate aware</span>
+    <span><b>No</b> signup</span>
+    <span><b>Nothing</b> tracked</span>
+  </div>
+</header>
+
+<main>
+  <section class="panel" aria-labelledby="water-heading">
+    <h2 id="water-heading"><span class="numeral">I</span>Your water</h2>
+
+    <div class="field-row">
+      <div class="field">
+        <label for="wc-gallons">Tank volume (gal)</label>
+        <input id="wc-gallons" type="number" min="1" step="0.5" value="20" />
+      </div>
+    </div>
+    <p class="footnote" id="wc-tank-hint" style="display:none; margin-top:-0.6rem; padding-top:0; border-top:none;"></p>
+
+    <div class="field-row">
+      <div class="field">
+        <label for="wc-current">Current nitrate (ppm)</label>
+        <input id="wc-current" type="number" min="0" step="1" value="40" />
+      </div>
+      <div class="field">
+        <label for="wc-target">Target nitrate (ppm)</label>
+        <input id="wc-target" type="number" min="0" step="1" value="20" />
+      </div>
+      <div class="field">
+        <label for="wc-tap">Tap/source water nitrate (ppm)</label>
+        <input id="wc-tap" type="number" min="0" step="1" value="0" />
+      </div>
+    </div>
+    <p class="footnote">
+      Most tap water reads 0 ppm nitrate, but well water and some municipal
+      supplies don't &mdash; test yours once if you've never checked. It
+      matters here because diluting with water that already has nitrate in
+      it changes the math, and sets a floor on how low any water change can
+      take you.
+    </p>
+  </section>
+
+  <section class="panel" id="top-of-results" aria-live="polite">
+    <h2><span class="numeral">II</span>This change</h2>
+    <div class="gauge-wrap">
+      <div class="gauge">
+        <div class="gauge-fill" id="wc-fill"></div>
+      </div>
+      <div class="gauge-labels">
+        <span>0%</span><span>25%</span><span>50%</span><span id="wc-pct">&mdash;</span>
+      </div>
+    </div>
+    <p class="status-line" id="wc-status">Enter your numbers above.</p>
+    <div id="wc-warnings" class="warnings" role="alert"></div>
+  </section>
+
+  <section class="panel" aria-labelledby="schedule-heading">
+    <h2 id="schedule-heading"><span class="numeral">III</span>Or, spread it out</h2>
+    <p class="footnote" style="border-top:none; margin-top:0; padding-top:0;">
+      One big change isn't always the plan &mdash; here's what repeating a
+      smaller change every water-change day actually does, instead of
+      guessing whether it'll be enough.
+    </p>
+    <div class="field-row">
+      <div class="field">
+        <label for="wc-step">Repeated change size</label>
+        <select id="wc-step">
+          <option value="0.1">10% each time</option>
+          <option value="0.15">15% each time</option>
+          <option value="0.2">20% each time</option>
+          <option value="0.25" selected>25% each time</option>
+          <option value="0.3">30% each time</option>
+          <option value="0.4">40% each time</option>
+          <option value="0.5">50% each time</option>
+        </select>
+      </div>
+    </div>
+    <div class="table-wrap">
+      <table class="data-table" id="wc-schedule">
+        <thead><tr><th>Change #</th><th>Nitrate after</th></tr></thead>
+        <tbody></tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="panel method-panel">
+    <h2><span class="numeral">IV</span>Method &amp; limits</h2>
+    <p>
+      The math is straight dilution: new nitrate = current &times; (1 &minus;
+      change fraction) + tap &times; change fraction. Solved for the change
+      fraction needed to hit a target, that's
+      <strong>(current &minus; target) &divide; (current &minus; tap)</strong>.
+      With 0 ppm tap water this reduces to the simpler version most guides
+      show &mdash; current 40, target 20, is exactly a 50% change &mdash; but
+      it stays correct when your source water isn't nitrate-free.
+    </p>
+    <p>
+      This calculator only models <strong>dilution</strong>, not the nitrate
+      your bioload will keep adding after the change, or how fast plants and
+      water changes together bring a number down over days. It answers "how
+      much water, right now, to hit this number" &mdash; not "will my levels
+      stay there." If nitrate climbs straight back up in a day or two, that's
+      a bioload/filtration/feeding question, not a water-change one.
+    </p>
+    <p>
+      A note on <strong>ammonia and nitrite</strong> instead of nitrate: the
+      same dilution math applies, but if either of those is reading above 0
+      in a tank with fish in it, that's usually an active emergency (an
+      uncycled or crashed filter), not a routine maintenance question &mdash;
+      do the largest safe water change now and figure out the cause, rather
+      than planning a gentle multi-week schedule.
+    </p>
+  </section>
+
+  <section class="panel faq-panel" aria-labelledby="wc-faq-heading">
+    <h2 id="wc-faq-heading"><span class="numeral">V</span>Common questions</h2>
+
+    <div class="faq-item">
+      <h3>Why doesn't two 25% changes equal one 50%?</h3>
+      <p>
+        Because the second change dilutes what's already-diluted water, not
+        the original concentration. From 40 ppm: one 25% change gives
+        40&times;0.75 = 30 ppm. A second 25% change gives 30&times;0.75 =
+        22.5 ppm &mdash; not 20 ppm, which is what a single 50% change would
+        give (40&times;0.5). Each repeated change removes a smaller absolute
+        amount, which is exactly why the schedule table above matters more
+        than a single ratio.
+      </p>
+    </div>
+
+    <div class="faq-item">
+      <h3>Is a big single water change dangerous?</h3>
+      <p>
+        The nitrate math itself doesn't care how large the change is, but the
+        fish do &mdash; a large, sudden shift in temperature, pH, or hardness
+        is the actual risk, not the water-change size directly. Match new
+        water's temperature closely, and if you're not dealing with a
+        dangerous ammonia/nitrite spike, a 40%+ change is usually fine done
+        carefully; going gentler over a couple of changes is the safer
+        default if you're unsure of your tap water's chemistry relative to
+        your tank's.
+      </p>
+    </div>
+
+    <div class="faq-item">
+      <h3>My tap water nitrate is higher than my target &mdash; now what?</h3>
+      <p>
+        Water changes alone can't get you below your tap water's own nitrate
+        level, no matter how much you change &mdash; you're diluting toward
+        that floor, not toward zero. Options are a nitrate-reducing filter
+        media, blending in RO/DI water to lower the effective source nitrate,
+        or accepting a higher target if the level isn't otherwise a problem
+        for your stock.
+      </p>
+    </div>
+
+    <div class="faq-item">
+      <h3>Where did my tank volume come from?</h3>
+      <p>
+        If you've used the <a href="../index.html">stocking calculator</a> on
+        this site, your tank volume is reused here automatically &mdash; it's
+        saved only in your own browser (never sent anywhere) so you don't
+        have to re-enter it. Change the number above any time; it won't
+        affect your stocking plan.
+      </p>
+    </div>
+  </section>
+</main>
+
+<footer id="support" class="site-footer">
+  <div class="footer-inner">
+    <p class="footer-tagline">Built to be useful, not to sell you anything.</p>
+    <p>
+      If this saved you a guess, you can
+      <a href="https://ko-fi.com/kober" class="kofi-button" target="_blank" rel="noopener">buy me a coffee</a>.
+      Nothing is tracked, nothing is required.
+    </p>
+    <p class="footer-fine">
+      No accounts, no ads, no data collection. Calculations run entirely in
+      your browser. Questions or corrections welcome via
+      <a href="https://github.com/koberheim/koberheim.github.io" target="_blank" rel="noopener">GitHub</a>.
+    </p>
+  </div>
+</footer>
+
+<script src="water-change.js?v=1"></script>
+<script src="../theme.js?v=6"></script>
+</body>
+</html>

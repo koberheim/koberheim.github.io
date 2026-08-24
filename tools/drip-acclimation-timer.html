@@ -1,0 +1,237 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Drip Acclimation Timer — Tankwise</title>
+<meta name="description" content="A free, working drip acclimation timer for new aquarium fish — not just a calculator. Tap to measure your drip rate, get a species-aware duration, and run a real countdown with an end chime." />
+<link rel="canonical" href="https://koberheim.github.io/tools/drip-acclimation-timer.html" />
+<meta name="google-site-verification" content="kkykua_KY_vLJIFKg8GfnX-6izK89qSfB3a8kxtB8u4" />
+
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Drip Acclimation Timer" />
+<meta property="og:description" content="A working countdown timer for acclimating new fish, not just a static calculator — tap to measure your drip rate and get species-aware guidance." />
+<meta property="og:url" content="https://koberheim.github.io/tools/drip-acclimation-timer.html" />
+<meta property="og:image" content="https://koberheim.github.io/og-image.png" />
+<meta name="twitter:card" content="summary_large_image" />
+
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='8' fill='%23f4eee1'/%3E%3Cpath d='M8 33c8-13 25-15 34-6-4 10-17 15-26 11-3 4-6 4-8 2 2-3 2-5 0-7z' fill='%23a2601f'/%3E%3Ccircle cx='38' cy='27' r='2.2' fill='%23f4eee1'/%3E%3Cpath d='M42 27l12-7v14z' fill='%237d4817'/%3E%3C/svg%3E" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="../style.css?v=6" />
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Drip Acclimation Timer",
+  "applicationCategory": "UtilitiesApplication",
+  "operatingSystem": "Any",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+  "description": "A free, working countdown timer for drip-acclimating new aquarium fish, with a tap-to-measure drip rate tool and species-aware duration guidance."
+}
+</script>
+<script>
+(function(){try{var t=localStorage.getItem("tankwise-theme");
+if(t==="dark")document.documentElement.setAttribute("data-theme","dark");}catch(e){}})();
+</script>
+</head>
+<body>
+
+<div class="bubbles" aria-hidden="true">
+  <span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+</div>
+
+<header class="hero">
+  <nav class="topbar">
+    <a class="brand" href="../index.html">Tankwise<span class="brand-rule"></span></a>
+    <div class="topbar-actions">
+      <button type="button" id="theme-toggle" class="theme-toggle"></button>
+      <a class="tip-link" href="../index.html#support">Support this tool</a>
+    </div>
+  </nav>
+
+  <nav class="tool-nav" aria-label="Tankwise tools">
+    <a href="../index.html">Stocking calculator</a>
+    <a href="water-change-calculator.html">Water change calculator</a>
+    <a href="drip-acclimation-timer.html" class="on">Acclimation timer</a>
+  </nav>
+
+  <div class="hero-copy">
+    <div class="hero-text">
+      <p class="eyebrow">Drip acclimation</p>
+      <h1>A timer that runs. <span class="accent">Not just a number.</span></h1>
+      <p class="lede">
+        Most acclimation calculators hand you a minute count and leave you to
+        watch the clock yourself. This one counts down for you &mdash; with a
+        tap-to-measure drip rate and species-aware timing pulled from the
+        same register as the stocking calculator.
+      </p>
+    </div>
+  </div>
+
+  <div class="masthead-meta">
+    <span><b>Live</b> countdown</span>
+    <span><b>Tap-to-measure</b> drip rate</span>
+    <span><b>Species-aware</b> timing</span>
+    <span><b>No</b> signup</span>
+  </div>
+</header>
+
+<main>
+  <section class="panel" aria-labelledby="species-select-heading">
+    <h2 id="species-select-heading"><span class="numeral">I</span>What are you acclimating?</h2>
+    <div class="field-row">
+      <div class="field">
+        <label for="at-species">Species (optional)</label>
+        <select id="at-species">
+          <option value="">General guideline (no species selected)</option>
+        </select>
+      </div>
+    </div>
+    <div id="at-recommendation" class="recommendation"></div>
+  </section>
+
+  <section class="panel" aria-labelledby="drip-rate-heading">
+    <h2 id="drip-rate-heading"><span class="numeral">II</span>Measure your drip rate</h2>
+    <p class="footnote" style="border-top:none; margin-top:0; padding-top:0;">
+      Start your siphon drip line, then tap the button below in time with
+      each drop for about ten seconds. No siphon running yet, or want to
+      skip this? Enter a rate directly instead.
+    </p>
+    <button type="button" id="at-tap-btn" class="tap-btn">Tap on each drip</button>
+    <div class="tap-readout" id="at-tap-readout">Tap to start measuring&hellip;</div>
+    <div class="field-row" style="margin-top:1rem;">
+      <div class="field">
+        <label for="at-rate">Drip rate (drops per second)</label>
+        <input id="at-rate" type="number" min="0.2" step="0.1" value="3" />
+      </div>
+    </div>
+  </section>
+
+  <section class="panel" id="top-of-results" aria-live="polite">
+    <h2><span class="numeral">III</span>The timer</h2>
+    <div class="field-row">
+      <div class="field">
+        <label for="at-minutes">Target duration (minutes)</label>
+        <input id="at-minutes" type="number" min="1" step="5" value="40" />
+      </div>
+    </div>
+
+    <div class="timer-display">
+      <div class="timer-ring-wrap">
+        <svg class="timer-ring" viewBox="0 0 120 120" aria-hidden="true">
+          <circle class="timer-ring-track" cx="60" cy="60" r="52" />
+          <circle class="timer-ring-progress" id="at-ring" cx="60" cy="60" r="52" />
+        </svg>
+        <div class="timer-time" id="at-time">40:00</div>
+      </div>
+      <div class="timer-controls">
+        <button type="button" id="at-start" class="mini-btn timer-btn">Start</button>
+        <button type="button" id="at-pause" class="mini-btn ghost timer-btn" disabled>Pause</button>
+        <button type="button" id="at-reset" class="mini-btn ghost timer-btn">Reset</button>
+      </div>
+      <p class="status-line" id="at-status">Set your duration and press start.</p>
+      <p class="footnote" style="border-top:none; margin-top:0.6rem; padding-top:0;">
+        Keep this tab open — the countdown pauses accurately if you switch
+        away and come back, but a chime only plays if the tab is open when
+        it finishes.
+      </p>
+    </div>
+  </section>
+
+  <section class="panel method-panel">
+    <h2><span class="numeral">IV</span>Method &amp; limits</h2>
+    <p>
+      Drip acclimation slowly mixes your tank's water into the bag or
+      container over time, so temperature, pH, hardness and salinity shift
+      gradually instead of all at once &mdash; the sudden version is what
+      causes osmotic shock. The default guideline here is
+      <strong>30&ndash;45 minutes</strong> at <strong>2&ndash;4 drops per
+      second</strong> for typical community fish, stretched to
+      <strong>60&ndash;90 minutes</strong> at a slower rate for shrimp and a
+      handful of sensitive species &mdash; pulled from the same
+      water-sensitive/advanced tags used by the
+      <a href="../index.html">stocking calculator's</a> species register, so
+      the two tools agree with each other.
+    </p>
+    <p>
+      This is a <strong>guideline timer</strong>, not species-specific
+      veterinary guidance, and it doesn't know your fish's actual condition.
+      Watch the animal, not just the clock &mdash; if it looks stressed
+      (gasping, erratic swimming, resting oddly) before the timer ends,
+      that's more important than finishing the countdown. Livebearer fry,
+      wild-caught fish, and anything arriving from a very different water
+      source than yours generally benefit from the longer end of any range.
+    </p>
+    <p>
+      The tap-to-measure tool needs at least 4 taps to produce a rate; more
+      taps (aim for 8&ndash;10) average out your timing better. It measures
+      <em>your</em> tapping, as a stand-in for counting real drops &mdash;
+      it doesn't see your actual drip line.
+    </p>
+  </section>
+
+  <section class="panel faq-panel" aria-labelledby="at-faq-heading">
+    <h2 id="at-faq-heading"><span class="numeral">V</span>Common questions</h2>
+
+    <div class="faq-item">
+      <h3>Do I need to drip acclimate every fish?</h3>
+      <p>
+        For most hardy community fish arriving from a local shop with
+        broadly similar water, a simpler float-and-mix acclimation is often
+        enough. Drip acclimation earns its extra time for sensitive species,
+        shrimp, wild-caught fish, anything that traveled a long distance or
+        arrived stressed, and whenever your water parameters differ
+        noticeably from where the fish came from.
+      </p>
+    </div>
+
+    <div class="faq-item">
+      <h3>What if I don't have airline tubing for a real drip line?</h3>
+      <p>
+        A slower, cruder version still helps: float the bag to match
+        temperature, then add small splashes of tank water to the bag every
+        few minutes instead of a continuous drip, roughly doubling the
+        volume by the end of your target time. It's less precise than a
+        siphon line, but far better than dumping fish straight in.
+      </p>
+    </div>
+
+    <div class="faq-item">
+      <h3>The timer says a different duration than I expected &mdash; why?</h3>
+      <p>
+        The default 30&ndash;45 minutes is a general-purpose starting point;
+        selecting a species above adjusts it using that species' care flags
+        (sensitivity, whether it's an invertebrate, etc.) in the same
+        database the stocking calculator uses. You can always type your own
+        number into the duration field &mdash; the recommendation is a
+        starting point, not a rule.
+      </p>
+    </div>
+  </section>
+</main>
+
+<footer id="support" class="site-footer">
+  <div class="footer-inner">
+    <p class="footer-tagline">Built to be useful, not to sell you anything.</p>
+    <p>
+      If this saved a fish a rough afternoon, you can
+      <a href="https://ko-fi.com/kober" class="kofi-button" target="_blank" rel="noopener">buy me a coffee</a>.
+      Nothing is tracked, nothing is required.
+    </p>
+    <p class="footer-fine">
+      No accounts, no ads, no data collection. Calculations run entirely in
+      your browser. Questions or corrections welcome via
+      <a href="https://github.com/koberheim/koberheim.github.io" target="_blank" rel="noopener">GitHub</a>.
+    </p>
+  </div>
+</footer>
+
+<script src="../species-data.js?v=6"></script>
+<script src="acclimation-timer.js?v=1"></script>
+<script src="../theme.js?v=6"></script>
+</body>
+</html>
