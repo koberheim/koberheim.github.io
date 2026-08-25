@@ -5,6 +5,34 @@ Tracks the build → measure → identify bottleneck → improve loop from
 
 ---
 
+## Iteration 5 — 2026-08-24: Marketing plan corrected for the real account
+
+**Trigger:** user clarified their Reddit account is active but has little
+post/comment history anywhere, and none in any fishkeeping subreddit
+specifically. The existing plan's "one honest post" framing assumed an
+established-enough account and didn't account for that gap.
+
+**What changed:** `NEXT_STEPS.md`'s community-sharing section rewritten from
+a single suggested post into a sequenced plan — genuine no-mention
+participation first, then a disclosed comment on a thread where the tool is
+actually the right answer, and only then (if that's gone fine, and the
+subreddit's rules clearly welcome it) a top-level post. Both copy variants
+rewritten to lead with disclosure and specific critique requests rather than
+a flat announcement. `MARKETING_PLAN.md` updated to point here.
+`VALIDATION.md`'s 4-week checkpoint decoupled from community sharing having
+happened by then — it was written assuming a share would land inside that
+window, which no longer fits a deliberately unhurried, multi-step warm-up;
+the checkpoint now reads SEO/search traffic on its own, with community
+sharing tracked as its own untimed thread.
+
+**Nothing built or deployed this round** — planning docs only, no site code
+changed.
+
+**Next checkpoint:** unchanged, **~2026-09-20**, now explicitly reading
+search traffic alone rather than waiting on a community share.
+
+---
+
 ## Iteration 4 — 2026-08-24: Multi-tool expansion
 
 **Trigger:** user request to research aquarium-community tool needs and add

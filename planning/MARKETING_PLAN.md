@@ -26,13 +26,30 @@ email address, or account the agent doesn't have and shouldn't act as.
 See `planning/NEXT_STEPS.md` — verify the site, submit the sitemap. This is
 the single biggest lever available and only takes your Google login.
 
-### 2. One honest post in a relevant community (~15 min, free)
-Reddit (r/Aquariums, r/PlantedTank, r/fishtank) or a fishkeeping forum.
-Suggested copy is in `NEXT_STEPS.md`. This has to come from your account,
-personally — not because the agent is being cautious for its own sake, but
-because a first post from a brand-new/agent-run account reads as spam, most
-communities explicitly ban that, and it would violate the project's own
-"no spam" rule to try to route around it.
+### 2. Reddit — adjusted for your actual account (~1-2 weeks, mostly passive, free)
+
+**Your situation, stated plainly:** the account is real and active, but has
+close to no post/comment history anywhere, and zero history in any
+fishkeeping subreddit specifically. That's a materially different (harder)
+starting point than "an established fishkeeping-community regular sharing
+something they made," and the plan below is written for it rather than
+pretending otherwise. Full detail — subreddit shortlist, sequencing, and
+both copy variants — is in `NEXT_STEPS.md` under "Sharing the tool," since
+that's the version meant to be acted on directly. The short version:
+
+- A first appearance in a niche subreddit that *is* a link to something you
+  made reads as spam to both the mod queue and the regulars, independent of
+  how genuinely useful it is — this isn't about your account being "bad,"
+  it's what a stranger's very first post looks like in any community.
+- The fix isn't a trick, it's just being a normal community member before
+  making an ask: spend a little real time genuinely reading and
+  participating in 1-2 target subreddits with zero mention of Tankwise
+  first, *then* share — as a comment with an upfront "I made this" disclosure
+  on a thread where it's genuinely the right answer, before ever trying a
+  top-level "look what I built" post.
+- This can't be compressed into one sitting, and shouldn't be forced onto a
+  deadline — the 4-week checkpoint doesn't depend on it having happened by
+  then; it's fine for this to still be "in progress" at that check-in.
 
 ### 3. Free tool directories (~5-10 min each, free)
 These are a normal, legitimate indie-hacker distribution channel — small

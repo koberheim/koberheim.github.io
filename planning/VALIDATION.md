@@ -35,12 +35,25 @@ Tracked in `REVENUE_LOG.md`, reviewed on a recurring cadence:
 
 ## Decision thresholds
 
-- **~4 weeks after launch + at least one honest community share:** if there are
-  fewer than ~20 sessions/week and $0 in tips, treat the "will get organic pickup"
-  part of the hypothesis as weak evidence against, and reassess — either try a second
-  honest share in a different community, improve the tool based on any feedback
-  received, or (if truly no interest signal at all) revisit idea #7 (invoice
-  generator) or #1/#5 from the scored list as a pivot.
+- **~4 weeks after launch, on SEO/search traffic alone:** if there are fewer
+  than ~20 sessions/week and $0 in tips, treat the "search + on-page content
+  alone is enough" part of the hypothesis as weak evidence against, and
+  reassess the product/content — this reading does **not** wait on a
+  community share happening (see below for why), so a quiet 4 weeks is real
+  signal about search discoverability specifically, not about community
+  distribution.
+- **Community sharing runs on its own timeline, not this checkpoint's.**
+  `NEXT_STEPS.md` lays out why: the account posting has real activity but
+  zero history in fishkeeping subreddits specifically, so the plan there is
+  deliberately a multi-step, unhurried warm-up (genuine participation first,
+  then a disclosed comment on a relevant thread, then — only later — a
+  top-level post) rather than a single "make one post" action. It being
+  still in progress at the 4-week mark is expected, not a missed step, and
+  isn't part of what that checkpoint measures.
+- **If a community share does happen and traffic doesn't move:** that's
+  separate evidence — reassess whether the product itself is the issue
+  (feedback received in that thread/post is the most direct signal available)
+  rather than concluding anything about search alone.
 - **If sessions are healthy but tips are $0:** the tool has demand but the
   monetization mechanism is the bottleneck — that's when to prioritize getting the
   Amazon Associates affiliate account set up (see `NEXT_STEPS.md`) rather than

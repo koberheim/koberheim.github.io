@@ -51,21 +51,75 @@ identity/tax details.
 
 ### Sharing the tool in fishkeeping communities (optional, your call)
 
-Distribution plan in `VALIDATION.md` relies on one honest, non-spammy share
-in a relevant community (e.g. r/Aquariums, r/PlantedTank) rather than paid
-ads. This should come from you, personally, on an account with real posting
-history — a first post from a brand-new/agent-controlled account reads as
-spam and most communities' rules discourage exactly that. A suggested,
-honest post (edit freely):
+**Your account:** active, but little post/comment history anywhere, and none
+in any fishkeeping subreddit. Written for that specifically — not the more
+common "just post it, you're an established regular" advice, which doesn't
+apply here and would likely just get removed or ignored.
 
-> Built a free aquarium stocking calculator that uses the surface-area rule
-> instead of "1 inch per gallon," with a rough bioload weighting per species.
-> No signup, no ads, calculations run in your browser. Feedback (especially
-> on the species list or the compatibility warnings) welcome:
-> [your link]
+**Why the sequencing below matters:** a subreddit's mods and regulars can't
+see your account's history on other topics — what they see is a stranger's
+*first-ever appearance in their community* being a link to something that
+benefits its poster. That reads as spam on its own, regardless of how useful
+the tool actually is or how genuine your intent is. It's not a trick to get
+around, it's just what showing up already promoting yourself looks like
+anywhere. The fix is the same thing that makes any new person welcome in a
+community: show up as a normal participant first.
 
-Check each community's self-promotion rules before posting (some want a
-flair, some restrict how often you can post your own content).
+**Step 1 — warm-up, no mention of Tankwise at all (spend a few real
+sessions over a week or two):**
+Join and genuinely read 1-2 of the subreddits below. Comment or upvote where
+you actually have something to add — answering a beginner's question,
+agreeing/disagreeing with advice being given, whatever's authentic to you.
+The goal is only that your username stops being a blank slate in that
+community before you ever mention the tool. This has to be genuine
+participation, not a box-ticking exercise — don't manufacture activity
+just to hit a number.
+
+**Step 2 — the first mention is a comment, not a post, with disclosure:**
+Watch for a thread where Tankwise is *actually the right answer* — someone
+asking "how many fish can I fit in X," "why didn't my water change lower my
+nitrates," or "how long should I drip acclimate this." Reply to that
+specific question first, genuinely, and only add the link as a "here's a
+tool that does this math, made it myself" aside. This is lower-risk than a
+top-level post (it's judged as a comment on-topic in an existing
+conversation, not a new self-promotional thread) and it's also just more
+useful to the person asking.
+
+> [Genuine answer to their actual question first.]
+>
+> Full disclosure, I built a free tool that does this calculation
+> automatically if it's useful: [link]. No signup, no ads — happy to hear if
+> anything looks off, especially [the specific thing relevant to their
+> question — the species list, a warning rule, the dilution math].
+
+**Step 3 — a top-level post, only once step 2 has gone fine at least once
+and you've found a subreddit whose rules clearly welcome maker posts:**
+
+> I kept seeing people get told "1 inch of fish per gallon" and end up
+> overstocked, so I built a free calculator that uses the surface-area rule
+> instead, with a rough bioload weighting per species — plus two smaller
+> tools for water-change math and drip acclimation timing. No signup, no
+> ads, runs entirely in your browser: [link]
+>
+> I'm not a huge Reddit poster so go easy on me, but genuinely want to know
+> if the species list or the compatibility warnings are missing anything
+> obvious — that's the part I'd most value feedback on.
+
+The "I'm not a huge Reddit poster" line isn't filler — naming the exact
+thing a skeptical reader is already thinking defuses it better than hoping
+nobody notices, and it's just true.
+
+**Subreddits to consider** (check each one's sidebar/wiki rules yourself
+before posting — self-promotion rules, required flair, and karma/account-age
+minimums change and weren't verified live for this list):
+r/Aquariums, r/PlantedTank, r/bettafish, r/shrimptank, r/discus. Pick one to
+start, not several — the same link appearing in multiple subreddits close
+together is itself a spam signal, independent of your account's history.
+
+**What not to do:** don't cross-post the same content to several subreddits
+at once, don't post the top-level version first, don't skip a subreddit's
+stated self-promo rule because step 1-2 felt like enough, and don't treat
+any of this as something to rush — there's no deadline tied to it.
 
 ## Reporting real numbers back
 
